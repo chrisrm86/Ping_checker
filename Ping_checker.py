@@ -11,13 +11,21 @@ More code: 	http://github.com/chrisrm86
 ##########################################################
 """
 import urllib.request
-
+import socket
 
 print("     Ping checker     ")
 print("\n")
 
 def check_internet_connection():
    webUrl = urllib.request.urlopen('http://google.com')
+
+   hostname = socket.gethostname()
+   IPAddress = socket.gethostbyname(hostname)
+
+   print('IP information')
+   print('Computer Name is: ' + hostname)
+   print('Computer IP Address: ' + IPAddress)
+   print('\n')
 
    print("Status: " + str(webUrl.status))
    print("Message: " + str(webUrl.msg))
